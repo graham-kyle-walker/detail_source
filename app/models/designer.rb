@@ -1,6 +1,8 @@
 class Designer < ApplicationRecord
   # Direct associations
 
+  belongs_to :project
+
   # Indirect associations
 
   # Validations
