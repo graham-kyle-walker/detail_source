@@ -8,6 +8,8 @@ class SupplierResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :products
+
   # Indirect associations
 
 end
