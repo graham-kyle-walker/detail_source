@@ -1,6 +1,10 @@
 class Detail < ApplicationRecord
   # Direct associations
 
+  has_many   :bookmarks,
+             :class_name => "SavedDetail",
+             :dependent => :destroy
+
   has_many   :materials,
              :dependent => :destroy
 

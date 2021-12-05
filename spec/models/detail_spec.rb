@@ -4,6 +4,8 @@ RSpec.describe Detail, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:bookmarks) }
+
     it { should have_many(:materials) }
 
     end
