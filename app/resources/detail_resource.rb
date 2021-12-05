@@ -11,6 +11,8 @@ class DetailResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :designer
+
   belongs_to :project
 
   has_many   :comments

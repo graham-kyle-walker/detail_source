@@ -7,6 +7,8 @@ class DesignerResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :details
+
   belongs_to :project
 
   # Indirect associations
