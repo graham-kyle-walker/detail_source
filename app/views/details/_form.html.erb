@@ -42,7 +42,7 @@
 
     <%= f.label :designer_id %>
     <!-- Input for designer_id start -->
-    <%= f.number_field :designer_id, class: designer_class, placeholder: "Enter designer" %>
+    <%= f.collection_select :designer_id, Designer.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for designer_id end -->
     <% if designer_was_invalid %>
       <% detail.errors.full_messages_for(:designer).each do |message| %>
