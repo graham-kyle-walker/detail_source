@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Assigned Project
+
+    <a data-toggle="collapse" href="#user_assigned_project_new_form">
+      Add designer
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.assigned_project.each do |designer| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to designer, designer %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_assigned_project_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Projects
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @supplier.projects.each do |project| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/projects/<%= project.id %>">
+          <%= project %>
+        </a>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

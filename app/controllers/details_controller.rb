@@ -42,8 +42,14 @@ class DetailsController < ApplicationController
   # DELETE /details/1
   def destroy
     @detail.destroy
-    redirect_to details_url, notice: 'Detail was successfully destroyed.'
+    message = "Detail was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to details_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

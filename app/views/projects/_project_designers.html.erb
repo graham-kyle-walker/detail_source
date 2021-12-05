@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Designers
+
+    <a data-toggle="collapse" href="#project_designers_new_form">
+      Add designer
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @project.designers.each do |designer| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to designer, designer %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to designer, method: :delete, data: { confirm: "Do you really want to delete this designer" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="project_designers_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>
