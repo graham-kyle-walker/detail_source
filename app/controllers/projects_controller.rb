@@ -6,6 +6,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   def index
     @projects = Project.all
+    @location_hash = Gmaps4rails.build_markers(@projects.where.not(:location_latitude => nil)) do |project, marker|
+      marker.lat project.location_latitude
+      marker.lng project.location_longitude
+      marker.infowindow "<h5><a href='/projects/#{project.id}'>#{project.project_manager_id}</a></h5><small>#{project.location_formatted_address}</small>"
+    end
   end
 
   # GET /projects/1

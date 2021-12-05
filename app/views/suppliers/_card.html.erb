@@ -12,7 +12,11 @@
 
       <dt>Location</dt>
       <!-- Display location start -->
-      <dd><%= supplier.location %></dd>
+      <dd>
+        <div>
+          <%= render partial: "suppliers/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display location end -->
 
       <dt>Contact information</dt>

@@ -4,6 +4,11 @@ class SuppliersController < ApplicationController
   # GET /suppliers
   def index
     @suppliers = Supplier.all
+    @location_hash = Gmaps4rails.build_markers(@suppliers.where.not(:location_latitude => nil)) do |supplier, marker|
+      marker.lat supplier.location_latitude
+      marker.lng supplier.location_longitude
+      marker.infowindow "<h5><a href='/suppliers/#{supplier.id}'>#{supplier.name}</a></h5><small>#{supplier.location_formatted_address}</small>"
+    end
   end
 
   # GET /suppliers/1

@@ -12,7 +12,11 @@
 
       <dt>Location</dt>
       <!-- Display location start -->
-      <dd><%= project.location %></dd>
+      <dd>
+        <div>
+          <%= render partial: "projects/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display location end -->
 
       <dt>Completion date</dt>

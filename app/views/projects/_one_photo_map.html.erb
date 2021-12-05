@@ -1,0 +1,16 @@
+<div id="location_map" style="height: 480px;"></div>
+
+<script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'location_map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": <%= @project.location_latitude %>,
+        "lng": <%= @project.location_longitude %>,
+        "infowindow": "<h5><%= @project.created_at %></h5><small><%= @project.location_formatted_address %></small>"
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
