@@ -94,7 +94,7 @@
 
     <%= f.label :supplier_id %>
     <!-- Input for supplier_id start -->
-    <%= f.number_field :supplier_id, class: supplier_class, placeholder: "Enter supplier" %>
+    <%= f.collection_select :supplier_id, Supplier.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for supplier_id end -->
     <% if supplier_was_invalid %>
       <% product.errors.full_messages_for(:supplier).each do |message| %>
