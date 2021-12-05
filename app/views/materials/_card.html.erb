@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Material #<%= material.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= material.name %></dd>
+      <!-- Display name end -->
+
+      <dt>Product</dt>
+      <!-- Display product_id start -->
+      <dd><%= material.product_id %></dd>
+      <!-- Display product_id end -->
+
+      <dt>Detail</dt>
+      <!-- Display detail_id start -->
+      <dd><%= material.detail_id %></dd>
+      <!-- Display detail_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back material, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link material start -->
+      <div class="col">
+        <%= link_to edit_material_url(material), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link material end -->
+
+      <!-- Delete link material start -->
+      <div class="col">
+        <%= link_to material, method: :delete, data: { confirm: "Do you really want to delete this material?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link material end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(material.updated_at) %> ago
+  </div>
+</div>
