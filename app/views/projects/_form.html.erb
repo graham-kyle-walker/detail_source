@@ -2,30 +2,9 @@
 
 <%= form_with(model: project, local: true, novalidate: true, class: "mb-3") do |f| %>
   <!-- Label and input for project_manager_id start -->
-  <div class="form-group">
-    <% project_manager_class = "form-control" %>
-    <% project_manager_was_invalid = project.errors.include?(:project_manager) %>
-
-    <% if was_validated %>
-      <% if project_manager_was_invalid %>
-        <% project_manager_class << " is-invalid" %>
-      <% else %>
-        <% project_manager_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :project_manager_id %>
-    <!-- Input for project_manager_id start -->
-    <%= f.collection_select :project_manager_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for project_manager_id end -->
-    <% if project_manager_was_invalid %>
-      <% project.errors.full_messages_for(:project_manager).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "project_manager_id" start -->
+  <%= f.hidden_field :project_manager_id, value: current_user.id %>
+  <!-- Input for "project_manager_id" end -->
   <!-- Label and input for project_manager_id end -->
   <!-- Label and input for location start -->
   <div class="form-group">
