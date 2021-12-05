@@ -7,6 +7,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :projects,
+             foreign_key: :project_manager_id
+
   has_many   :assigned_project,
              resource: DesignerResource
 

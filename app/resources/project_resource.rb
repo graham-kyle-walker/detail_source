@@ -10,6 +10,9 @@ class ProjectResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :project_manager,
+             resource: UserResource
+
   has_many   :designers
 
   has_many   :details
