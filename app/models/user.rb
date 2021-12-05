@@ -18,6 +18,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :details,
+             :through => :assigned_project,
+             :source => :details
+
   # Validations
 
   # Scopes
