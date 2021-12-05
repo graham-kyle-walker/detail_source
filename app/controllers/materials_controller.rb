@@ -24,7 +24,12 @@ class MaterialsController < ApplicationController
     @material = Material.new(material_params)
 
     if @material.save
-      redirect_to @material, notice: 'Material was successfully created.'
+      message = 'Material was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @material, notice: message
+      end
     else
       render :new
     end

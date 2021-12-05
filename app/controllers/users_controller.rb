@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @comment = Comment.new
+    @saved_detail = SavedDetail.new
+    @project = Project.new
+    @designer = Designer.new
   end
 
   # GET /users/new

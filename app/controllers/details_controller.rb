@@ -8,6 +8,9 @@ class DetailsController < ApplicationController
 
   # GET /details/1
   def show
+    @comment = Comment.new
+    @saved_detail = SavedDetail.new
+    @material = Material.new
   end
 
   # GET /details/new
@@ -24,7 +27,12 @@ class DetailsController < ApplicationController
     @detail = Detail.new(detail_params)
 
     if @detail.save
-      redirect_to @detail, notice: 'Detail was successfully created.'
+      message = 'Detail was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @detail, notice: message
+      end
     else
       render :new
     end

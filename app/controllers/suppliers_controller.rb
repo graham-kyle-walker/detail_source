@@ -8,6 +8,7 @@ class SuppliersController < ApplicationController
 
   # GET /suppliers/1
   def show
+    @product = Product.new
   end
 
   # GET /suppliers/new

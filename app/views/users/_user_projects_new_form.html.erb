@@ -1,0 +1,52 @@
+<!-- Form project start -->
+<%= form_with(model: @project, local: true) do |f| %>
+<!-- Form project end -->
+
+  <!-- Label and input for project_manager_id start -->
+  <!-- Input for project_manager_id start -->
+  <%= f.hidden_field :project_manager_id, value: @user.id %>
+  <!-- Input for project_manager_id end -->
+  <!-- Label and input for project_manager_id end -->
+
+  <!-- Label and input for location start -->
+  <div class="form-group">
+    <%= f.label :location %>
+
+    <!-- Input for location start -->
+    <%= f.text_field :location, class: "form-control" %>
+    <!-- Input for location end -->
+  </div>
+  <!-- Label and input for location end -->
+
+  <!-- Label and input for completion_date start -->
+  <div class="form-group">
+    <%= f.label :completion_date %>
+
+    <!-- Input for completion_date start -->
+    <%= f.date_select :completion_date, class: "form-control" %>
+    <!-- Input for completion_date end -->
+  </div>
+  <!-- Label and input for completion_date end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <%= f.label :name %>
+
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: "form-control" %>
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <%= f.label :description %>
+
+    <!-- Input for description start -->
+    <%= f.text_field :description, class: "form-control" %>
+    <!-- Input for description end -->
+  </div>
+  <!-- Label and input for description end -->
+
+  <%= f.submit "Create project", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

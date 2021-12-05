@@ -8,6 +8,7 @@ class DesignersController < ApplicationController
 
   # GET /designers/1
   def show
+    @detail = Detail.new
   end
 
   # GET /designers/new
@@ -24,7 +25,12 @@ class DesignersController < ApplicationController
     @designer = Designer.new(designer_params)
 
     if @designer.save
-      redirect_to @designer, notice: 'Designer was successfully created.'
+      message = 'Designer was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @designer, notice: message
+      end
     else
       render :new
     end

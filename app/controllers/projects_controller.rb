@@ -8,6 +8,8 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
+    @designer = Designer.new
+    @detail = Detail.new
   end
 
   # GET /projects/new
@@ -24,7 +26,12 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
-      redirect_to @project, notice: 'Project was successfully created.'
+      message = 'Project was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @project, notice: message
+      end
     else
       render :new
     end
