@@ -4,6 +4,8 @@ RSpec.describe Material, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:product) }
+
     it { should belong_to(:detail) }
 
     end

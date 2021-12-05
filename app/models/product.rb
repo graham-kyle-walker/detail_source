@@ -1,6 +1,10 @@
 class Product < ApplicationRecord
   # Direct associations
 
+  has_many   :use_case,
+             :class_name => "Material",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
