@@ -18,6 +18,8 @@ RSpec.describe Detail, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:products) }
+
     it { should have_one(:detailer) }
 
     it { should have_many(:suppliers) }

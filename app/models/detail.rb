@@ -17,6 +17,10 @@ class Detail < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :products,
+             :through => :materials,
+             :source => :product
+
   has_one    :detailer,
              :through => :designer,
              :source => :designers

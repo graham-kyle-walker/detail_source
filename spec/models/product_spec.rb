@@ -12,6 +12,8 @@ RSpec.describe Product, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:details) }
+
     end
 
     describe "Validations" do

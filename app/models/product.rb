@@ -9,6 +9,10 @@ class Product < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :details,
+             :through => :use_case,
+             :source => :detail
+
   # Validations
 
   # Scopes
