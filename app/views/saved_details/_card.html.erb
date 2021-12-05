@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Detail</dt>
-      <!-- Display detail_id start -->
       <dd>
         <% if @saved_detail.detail.present? %>
           <%= link_to saved_detail.detail, saved_detail.detail %>
         <% end %>
       </dd>
-      <!-- Display detail_id end -->
 
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @saved_detail.user.present? %>
           <%= link_to saved_detail.user, saved_detail.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
     </dl>
 
@@ -30,21 +26,17 @@
         <%= link_to_show_or_back saved_detail, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link saved_detail start -->
       <div class="col">
         <%= link_to edit_saved_detail_url(saved_detail), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link saved_detail end -->
 
-      <!-- Delete link saved_detail start -->
       <div class="col">
         <%= link_to saved_detail, method: :delete, data: { confirm: "Do you really want to delete this saved_detail?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link saved_detail end -->
     </div>
   </div>
 

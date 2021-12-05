@@ -6,37 +6,27 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Project manager</dt>
-      <!-- Display project_manager_id start -->
       <dd>
         <% if @project.project_manager.present? %>
           <%= link_to project.project_manager, project.project_manager %>
         <% end %>
       </dd>
-      <!-- Display project_manager_id end -->
 
       <dt>Location</dt>
-      <!-- Display location start -->
       <dd>
         <div>
           <%= render partial: "projects/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display location end -->
 
       <dt>Completion date</dt>
-      <!-- Display completion_date start -->
       <dd><%= project.completion_date %></dd>
-      <!-- Display completion_date end -->
 
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= project.name %></dd>
-      <!-- Display name end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= project.description %></dd>
-      <!-- Display description end -->
 
     </dl>
 
@@ -45,7 +35,6 @@
         <%= link_to_show_or_back project, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link project start -->
       <div class="col">
         <% if current_user == @project.project_manager %>
           <%= link_to edit_project_url(project), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -53,9 +42,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link project end -->
 
-      <!-- Delete link project start -->
       <div class="col">
         <% if current_user == @project.project_manager %>
           <%= link_to project, method: :delete, data: { confirm: "Do you really want to delete this project?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -63,7 +50,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link project end -->
     </div>
   </div>
 

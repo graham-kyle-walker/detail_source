@@ -1,7 +1,6 @@
 <% was_validated = product.errors.any? %>
 
 <%= form_with(model: product, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = product.errors.include?(:name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% product.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for price start -->
   <div class="form-group">
     <% price_class = "form-control" %>
     <% price_was_invalid = product.errors.include?(:price) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :price %>
-    <!-- Input for price start -->
     <%= f.text_field :price, class: price_class, placeholder: "Enter price" %>
-    <!-- Input for price end -->
     <% if price_was_invalid %>
       <% product.errors.full_messages_for(:price).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for price end -->
-  <!-- Label and input for description start -->
   <div class="form-group">
     <% description_class = "form-control" %>
     <% description_was_invalid = product.errors.include?(:description) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_field :description, class: description_class, placeholder: "Enter description" %>
-    <!-- Input for description end -->
     <% if description_was_invalid %>
       <% product.errors.full_messages_for(:description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for description end -->
-  <!-- Label and input for supplier_id start -->
   <div class="form-group">
     <% supplier_class = "form-control" %>
     <% supplier_was_invalid = product.errors.include?(:supplier) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :supplier_id %>
-    <!-- Input for supplier_id start -->
     <%= f.collection_select :supplier_id, Supplier.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for supplier_id end -->
     <% if supplier_was_invalid %>
       <% product.errors.full_messages_for(:supplier).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for supplier_id end -->
-  <!-- Label and input for image start -->
   <div class="form-group">
     <% image_class = "form-control" %>
     <% image_was_invalid = product.errors.include?(:image) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :image %>
-    <!-- Input for image start -->
     <%= f.file_field :image, class: "form-control" %>
-    <!-- Input for image end -->
     <% if image_was_invalid %>
       <% product.errors.full_messages_for(:image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,6 +111,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for image end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

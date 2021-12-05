@@ -6,44 +6,32 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Project</dt>
-      <!-- Display project_id start -->
       <dd>
         <% if @detail.project.present? %>
           <%= link_to detail.project, detail.project %>
         <% end %>
       </dd>
-      <!-- Display project_id end -->
 
       <dt>Designer</dt>
-      <!-- Display designer_id start -->
       <dd>
         <% if @detail.designer.present? %>
           <%= link_to detail.designer, detail.designer %>
         <% end %>
       </dd>
-      <!-- Display designer_id end -->
 
       <dt>Success score</dt>
-      <!-- Display success_score start -->
       <dd><%= detail.success_score %></dd>
-      <!-- Display success_score end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= detail.description %></dd>
-      <!-- Display description end -->
 
       <dt>Image</dt>
-      <!-- Display image start -->
       <dd>
         <%= cl_image_tag @detail.image, class: "img-fluid" %>
       </dd>
-      <!-- Display image end -->
 
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= detail.name %></dd>
-      <!-- Display name end -->
 
     </dl>
 
@@ -52,21 +40,17 @@
         <%= link_to_show_or_back detail, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link detail start -->
       <div class="col">
         <%= link_to edit_detail_url(detail), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link detail end -->
 
-      <!-- Delete link detail start -->
       <div class="col">
         <%= link_to detail, method: :delete, data: { confirm: "Do you really want to delete this detail?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link detail end -->
     </div>
   </div>
 

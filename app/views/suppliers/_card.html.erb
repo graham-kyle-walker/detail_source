@@ -6,23 +6,17 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= supplier.name %></dd>
-      <!-- Display name end -->
 
       <dt>Location</dt>
-      <!-- Display location start -->
       <dd>
         <div>
           <%= render partial: "suppliers/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display location end -->
 
       <dt>Contact information</dt>
-      <!-- Display contact_information start -->
       <dd><%= supplier.contact_information %></dd>
-      <!-- Display contact_information end -->
 
     </dl>
 
@@ -31,21 +25,17 @@
         <%= link_to_show_or_back supplier, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link supplier start -->
       <div class="col">
         <%= link_to edit_supplier_url(supplier), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link supplier end -->
 
-      <!-- Delete link supplier start -->
       <div class="col">
         <%= link_to supplier, method: :delete, data: { confirm: "Do you really want to delete this supplier?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link supplier end -->
     </div>
   </div>
 

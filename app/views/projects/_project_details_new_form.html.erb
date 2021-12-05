@@ -1,61 +1,35 @@
-<!-- Form detail start -->
 <%= form_with(model: @detail, local: true) do |f| %>
-<!-- Form detail end -->
 
-  <!-- Label and input for project_id start -->
-  <!-- Input for project_id start -->
   <%= f.hidden_field :project_id, value: @project.id %>
-  <!-- Input for project_id end -->
-  <!-- Label and input for project_id end -->
 
-  <!-- Label and input for designer_id start -->
   <div class="form-group">
     <%= f.label :designer_id %>
 
-    <!-- Input for designer_id start -->
     <%= f.collection_select :designer_id, Designer.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for designer_id end -->
   </div>
-  <!-- Label and input for designer_id end -->
 
-  <!-- Label and input for success_score start -->
   <div class="form-group">
     <%= f.label :success_score %>
 
-    <!-- Input for success_score start -->
     <%= f.text_field :success_score, class: "form-control" %>
-    <!-- Input for success_score end -->
   </div>
-  <!-- Label and input for success_score end -->
 
-  <!-- Label and input for description start -->
   <div class="form-group">
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_area :description, rows: "3", class: "form-control" %>
-    <!-- Input for description end -->
   </div>
-  <!-- Label and input for description end -->
 
-  <!-- Label and input for image start -->
   <div class="form-group">
     <%= f.label :image %>
 
-    <!-- Input for image start -->
     <%= f.file_field :image, class: "form-control" %>
-    <!-- Input for image end -->
   </div>
-  <!-- Label and input for image end -->
 
-  <!-- Label and input for name start -->
   <div class="form-group">
     <%= f.label :name %>
 
-    <!-- Input for name start -->
     <%= f.text_field :name, class: "form-control" %>
-    <!-- Input for name end -->
   </div>
-  <!-- Label and input for name end -->
 
   <%= f.submit "Create detail", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

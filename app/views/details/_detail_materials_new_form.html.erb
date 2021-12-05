@@ -1,32 +1,18 @@
-<!-- Form material start -->
 <%= form_with(model: @material, local: true) do |f| %>
-<!-- Form material end -->
 
-  <!-- Label and input for name start -->
   <div class="form-group">
     <%= f.label :name %>
 
-    <!-- Input for name start -->
     <%= f.text_field :name, class: "form-control" %>
-    <!-- Input for name end -->
   </div>
-  <!-- Label and input for name end -->
 
-  <!-- Label and input for product_id start -->
   <div class="form-group">
     <%= f.label :product_id %>
 
-    <!-- Input for product_id start -->
     <%= f.collection_select :product_id, Product.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for product_id end -->
   </div>
-  <!-- Label and input for product_id end -->
 
-  <!-- Label and input for detail_id start -->
-  <!-- Input for detail_id start -->
   <%= f.hidden_field :detail_id, value: @detail.id %>
-  <!-- Input for detail_id end -->
-  <!-- Label and input for detail_id end -->
 
   <%= f.submit "Create material", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

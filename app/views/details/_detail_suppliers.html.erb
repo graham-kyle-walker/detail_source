@@ -6,11 +6,9 @@
   <ul class="list-group list-group-flush">
     <% @detail.suppliers.each do |supplier| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/suppliers/<%= supplier.id %>">
           <%= supplier %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

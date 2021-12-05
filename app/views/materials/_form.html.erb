@@ -1,7 +1,6 @@
 <% was_validated = material.errors.any? %>
 
 <%= form_with(model: material, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = material.errors.include?(:name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% material.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for product_id start -->
   <div class="form-group">
     <% product_class = "form-control" %>
     <% product_was_invalid = material.errors.include?(:product) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :product_id %>
-    <!-- Input for product_id start -->
     <%= f.collection_select :product_id, Product.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for product_id end -->
     <% if product_was_invalid %>
       <% material.errors.full_messages_for(:product).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for product_id end -->
-  <!-- Label and input for detail_id start -->
   <div class="form-group">
     <% detail_class = "form-control" %>
     <% detail_was_invalid = material.errors.include?(:detail) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :detail_id %>
-    <!-- Input for detail_id start -->
     <%= f.collection_select :detail_id, Detail.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for detail_id end -->
     <% if detail_was_invalid %>
       <% material.errors.full_messages_for(:detail).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for detail_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

@@ -1,7 +1,6 @@
 <% was_validated = detail.errors.any? %>
 
 <%= form_with(model: detail, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for project_id start -->
   <div class="form-group">
     <% project_class = "form-control" %>
     <% project_was_invalid = detail.errors.include?(:project) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :project_id %>
-    <!-- Input for project_id start -->
     <%= f.collection_select :project_id, Project.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for project_id end -->
     <% if project_was_invalid %>
       <% detail.errors.full_messages_for(:project).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for project_id end -->
-  <!-- Label and input for designer_id start -->
   <div class="form-group">
     <% designer_class = "form-control" %>
     <% designer_was_invalid = detail.errors.include?(:designer) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :designer_id %>
-    <!-- Input for designer_id start -->
     <%= f.collection_select :designer_id, Designer.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for designer_id end -->
     <% if designer_was_invalid %>
       <% detail.errors.full_messages_for(:designer).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for designer_id end -->
-  <!-- Label and input for success_score start -->
   <div class="form-group">
     <% success_score_class = "form-control" %>
     <% success_score_was_invalid = detail.errors.include?(:success_score) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :success_score %>
-    <!-- Input for success_score start -->
     <%= f.text_field :success_score, class: success_score_class, placeholder: "Enter success score" %>
-    <!-- Input for success_score end -->
     <% if success_score_was_invalid %>
       <% detail.errors.full_messages_for(:success_score).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for success_score end -->
-  <!-- Label and input for description start -->
   <div class="form-group">
     <% description_class = "form-control" %>
     <% description_was_invalid = detail.errors.include?(:description) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_area :description, class: description_class, placeholder: "Enter description" %>
-    <!-- Input for description end -->
     <% if description_was_invalid %>
       <% detail.errors.full_messages_for(:description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for description end -->
-  <!-- Label and input for image start -->
   <div class="form-group">
     <% image_class = "form-control" %>
     <% image_was_invalid = detail.errors.include?(:image) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :image %>
-    <!-- Input for image start -->
     <%= f.file_field :image, class: "form-control" %>
-    <!-- Input for image end -->
     <% if image_was_invalid %>
       <% detail.errors.full_messages_for(:image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for image end -->
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = detail.errors.include?(:name) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% detail.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,6 +133,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
