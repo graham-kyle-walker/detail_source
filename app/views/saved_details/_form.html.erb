@@ -16,7 +16,7 @@
 
     <%= f.label :detail_id %>
     <!-- Input for detail_id start -->
-    <%= f.number_field :detail_id, class: detail_class, placeholder: "Enter detail" %>
+    <%= f.collection_select :detail_id, Detail.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for detail_id end -->
     <% if detail_was_invalid %>
       <% saved_detail.errors.full_messages_for(:detail).each do |message| %>
