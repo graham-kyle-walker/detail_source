@@ -7,6 +7,10 @@ class DesignerResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :designers,
+             resource: UserResource,
+             foreign_key: :user_id
+
   has_many   :details
 
   belongs_to :project

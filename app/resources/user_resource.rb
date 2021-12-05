@@ -7,6 +7,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :assigned_project,
+             resource: DesignerResource
+
   # Indirect associations
 
 end
