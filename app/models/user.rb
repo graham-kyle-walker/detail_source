@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :comments,
+             :dependent => :destroy
+
   has_many   :bookmarks,
              :class_name => "SavedDetail",
              :dependent => :destroy
