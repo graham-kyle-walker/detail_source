@@ -1,28 +1,27 @@
 class User < ApplicationRecord
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :bookmarks,
-             :class_name => "SavedDetail",
-             :dependent => :destroy
+             class_name: "SavedDetail",
+             dependent: :destroy
 
   has_many   :projects,
-             :foreign_key => "project_manager_id",
-             :dependent => :destroy
+             foreign_key: "project_manager_id",
+             dependent: :destroy
 
   has_many   :assigned_project,
-             :class_name => "Designer",
-             :dependent => :destroy
+             class_name: "Designer",
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :details,
-             :through => :assigned_project,
-             :source => :details
+             through: :assigned_project,
+             source: :details
 
   # Validations
 

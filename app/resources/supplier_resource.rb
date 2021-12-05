@@ -8,7 +8,7 @@ class SupplierResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :products
+  has_many :products
 
   # Indirect associations
 
@@ -28,16 +28,15 @@ class SupplierResource < ApplicationResource
     end
   end
 
-
   filter :project_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:projects).where(:details => {:project_id => value})
+      scope.eager_load(:projects).where(details: { project_id: value })
     end
   end
 
   filter :detail_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:details).where(:materials => {:detail_id => value})
+      scope.eager_load(:details).where(materials: { detail_id: value })
     end
   end
 end

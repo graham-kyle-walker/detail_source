@@ -14,5 +14,4 @@ class SavedDetail < ApplicationRecord
   def to_s
     detail.to_s
   end
-
 end

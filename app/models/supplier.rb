@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class Supplier < ApplicationRecord
   before_validation :geocode_location
 
   def geocode_location
-    if self.location.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.location)}"
+    if location.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(location)}"
 
       raw_data = open(url).read
 
@@ -22,17 +22,17 @@ class Supplier < ApplicationRecord
   # Direct associations
 
   has_many   :products,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :details,
-             :through => :products,
-             :source => :details
+             through: :products,
+             source: :details
 
   has_many   :projects,
-             :through => :details,
-             :source => :project
+             through: :details,
+             source: :project
 
   # Validations
 
@@ -41,5 +41,4 @@ class Supplier < ApplicationRecord
   def to_s
     name
   end
-
 end

@@ -8,28 +8,28 @@ class Detail < ApplicationRecord
   belongs_to :project
 
   has_many   :comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :bookmarks,
-             :class_name => "SavedDetail",
-             :dependent => :destroy
+             class_name: "SavedDetail",
+             dependent: :destroy
 
   has_many   :materials,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :products,
-             :through => :materials,
-             :source => :product
+             through: :materials,
+             source: :product
 
   has_one    :detailer,
-             :through => :designer,
-             :source => :designers
+             through: :designer,
+             source: :designers
 
   has_many   :suppliers,
-             :through => :products,
-             :source => :supplier
+             through: :products,
+             source: :supplier
 
   # Validations
 
@@ -38,5 +38,4 @@ class Detail < ApplicationRecord
   def to_s
     project.to_s
   end
-
 end

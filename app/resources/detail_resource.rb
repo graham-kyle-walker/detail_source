@@ -36,16 +36,15 @@ class DetailResource < ApplicationResource
     end
   end
 
-
   filter :supplier_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:suppliers).where(:products => {:supplier_id => value})
+      scope.eager_load(:suppliers).where(products: { supplier_id: value })
     end
   end
 
   filter :user_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:detailer).where(:designers => {:user_id => value})
+      scope.eager_load(:detailer).where(designers: { user_id: value })
     end
   end
 end

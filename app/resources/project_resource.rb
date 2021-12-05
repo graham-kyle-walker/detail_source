@@ -27,10 +27,9 @@ class ProjectResource < ApplicationResource
     end
   end
 
-
   filter :supplier_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:suppliers).where(:products => {:supplier_id => value})
+      scope.eager_load(:suppliers).where(products: { supplier_id: value })
     end
   end
 end

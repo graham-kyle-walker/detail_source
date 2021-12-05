@@ -2,12 +2,12 @@ class Designer < ApplicationRecord
   # Direct associations
 
   belongs_to :designers,
-             :required => false,
-             :class_name => "User",
-             :foreign_key => "user_id"
+             optional: true,
+             class_name: "User",
+             foreign_key: "user_id"
 
   has_many   :details,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :project
 
@@ -20,5 +20,4 @@ class Designer < ApplicationRecord
   def to_s
     project.to_s
   end
-
 end

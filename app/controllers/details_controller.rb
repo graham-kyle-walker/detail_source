@@ -1,10 +1,11 @@
 class DetailsController < ApplicationController
-  before_action :set_detail, only: [:show, :edit, :update, :destroy]
+  before_action :set_detail, only: %i[show edit update destroy]
 
   # GET /details
   def index
     @q = Detail.ransack(params[:q])
-    @details = @q.result(:distinct => true).includes(:materials, :bookmarks, :comments, :project, :designer, :suppliers, :detailer, :products).page(params[:page]).per(10)
+    @details = @q.result(distinct: true).includes(:materials, :bookmarks,
+                                                  :comments, :project, :designer, :suppliers, :detailer, :products).page(params[:page]).per(10)
   end
 
   # GET /details/1
@@ -20,17 +21,16 @@ class DetailsController < ApplicationController
   end
 
   # GET /details/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /details
   def create
     @detail = Detail.new(detail_params)
 
     if @detail.save
-      message = 'Detail was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Detail was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @detail, notice: message
       end
@@ -42,7 +42,7 @@ class DetailsController < ApplicationController
   # PATCH/PUT /details/1
   def update
     if @detail.update(detail_params)
-      redirect_to @detail, notice: 'Detail was successfully updated.'
+      redirect_to @detail, notice: "Detail was successfully updated."
     else
       render :edit
     end
@@ -52,22 +52,23 @@ class DetailsController < ApplicationController
   def destroy
     @detail.destroy
     message = "Detail was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to details_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_detail
-      @detail = Detail.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def detail_params
-      params.require(:detail).permit(:project_id, :designer_id, :success_score, :description, :image, :name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_detail
+    @detail = Detail.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def detail_params
+    params.require(:detail).permit(:project_id, :designer_id, :success_score,
+                                   :description, :image, :name)
+  end
 end

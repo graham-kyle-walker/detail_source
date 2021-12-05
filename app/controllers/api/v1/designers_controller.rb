@@ -13,7 +13,7 @@ class Api::V1::DesignersController < Api::V1::GraphitiController
     designer = DesignerResource.build(params)
 
     if designer.save
-      render jsonapi: designer, status: 201
+      render jsonapi: designer, status: :created
     else
       render jsonapi_errors: designer
     end
@@ -33,7 +33,7 @@ class Api::V1::DesignersController < Api::V1::GraphitiController
     designer = DesignerResource.find(params)
 
     if designer.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: designer
     end

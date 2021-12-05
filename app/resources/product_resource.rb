@@ -18,5 +18,4 @@ class ProductResource < ApplicationResource
   # Indirect associations
 
   many_to_many :details
-
 end

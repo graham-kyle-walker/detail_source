@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe DesignerResource, type: :resource do
-  describe 'creating' do
+  describe "creating" do
     let(:payload) do
       {
         data: {
-          type: 'designers',
-          attributes: { }
-        }
+          type: "designers",
+          attributes: {},
+        },
       }
     end
 
@@ -15,23 +15,24 @@ RSpec.describe DesignerResource, type: :resource do
       DesignerResource.build(payload)
     end
 
-    it 'works' do
-      expect {
-        expect(instance.save).to eq(true), instance.errors.full_messages.to_sentence
-      }.to change { Designer.count }.by(1)
+    it "works" do
+      expect do
+        expect(instance.save).to eq(true),
+                                 instance.errors.full_messages.to_sentence
+      end.to change { Designer.count }.by(1)
     end
   end
 
-  describe 'updating' do
+  describe "updating" do
     let!(:designer) { create(:designer) }
 
     let(:payload) do
       {
         data: {
           id: designer.id.to_s,
-          type: 'designers',
-          attributes: { } # Todo!
-        }
+          type: "designers",
+          attributes: {}, # Todo!
+        },
       }
     end
 
@@ -39,25 +40,25 @@ RSpec.describe DesignerResource, type: :resource do
       DesignerResource.find(payload)
     end
 
-    xit 'works (add some attributes and enable this spec)' do
-      expect {
+    xit "works (add some attributes and enable this spec)" do
+      expect do
         expect(instance.update_attributes).to eq(true)
-      }.to change { designer.reload.updated_at }
+      end.to change { designer.reload.updated_at }
       # .and change { designer.foo }.to('bar') <- example
     end
   end
 
-  describe 'destroying' do
+  describe "destroying" do
     let!(:designer) { create(:designer) }
 
     let(:instance) do
       DesignerResource.find(id: designer.id)
     end
 
-    it 'works' do
-      expect {
+    it "works" do
+      expect do
         expect(instance.destroy).to eq(true)
-      }.to change { Designer.count }.by(-1)
+      end.to change { Designer.count }.by(-1)
     end
   end
 end

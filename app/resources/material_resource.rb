@@ -13,5 +13,4 @@ class MaterialResource < ApplicationResource
   belongs_to :detail
 
   # Indirect associations
-
 end

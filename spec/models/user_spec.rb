@@ -1,9 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should have_many(:comments) }
 
     it { should have_many(:bookmarks) }
@@ -11,16 +9,12 @@ RSpec.describe User, type: :model do
     it { should have_many(:projects) }
 
     it { should have_many(:assigned_project) }
+  end
 
-    end
-
-    describe "InDirect Associations" do
-
+  describe "InDirect Associations" do
     it { should have_many(:details) }
+  end
 
-    end
-
-    describe "Validations" do
-
-    end
+  describe "Validations" do
+  end
 end

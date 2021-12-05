@@ -12,5 +12,4 @@ class SavedDetailResource < ApplicationResource
   belongs_to :detail
 
   # Indirect associations
-
 end

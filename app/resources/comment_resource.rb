@@ -13,5 +13,4 @@ class CommentResource < ApplicationResource
   belongs_to :detail
 
   # Indirect associations
-
 end

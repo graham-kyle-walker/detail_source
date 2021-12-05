@@ -13,7 +13,7 @@ class Api::V1::SavedDetailsController < Api::V1::GraphitiController
     saved_detail = SavedDetailResource.build(params)
 
     if saved_detail.save
-      render jsonapi: saved_detail, status: 201
+      render jsonapi: saved_detail, status: :created
     else
       render jsonapi_errors: saved_detail
     end
@@ -33,7 +33,7 @@ class Api::V1::SavedDetailsController < Api::V1::GraphitiController
     saved_detail = SavedDetailResource.find(params)
 
     if saved_detail.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: saved_detail
     end
