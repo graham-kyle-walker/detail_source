@@ -3,7 +3,8 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
-    @products = Product.page(params[:page]).per(10)
+    @q = Product.ransack(params[:q])
+    @products = @q.result(:distinct => true).includes(:use_case, :supplier, :details).page(params[:page]).per(10)
   end
 
   # GET /products/1

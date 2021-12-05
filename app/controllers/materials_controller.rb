@@ -3,7 +3,8 @@ class MaterialsController < ApplicationController
 
   # GET /materials
   def index
-    @materials = Material.page(params[:page]).per(10)
+    @q = Material.ransack(params[:q])
+    @materials = @q.result(:distinct => true).includes(:detail, :product).page(params[:page]).per(10)
   end
 
   # GET /materials/1

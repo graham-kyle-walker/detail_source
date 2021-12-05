@@ -3,7 +3,8 @@ class SavedDetailsController < ApplicationController
 
   # GET /saved_details
   def index
-    @saved_details = SavedDetail.page(params[:page]).per(10)
+    @q = SavedDetail.ransack(params[:q])
+    @saved_details = @q.result(:distinct => true).includes(:detail, :user).page(params[:page]).per(10)
   end
 
   # GET /saved_details/1

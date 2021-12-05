@@ -3,7 +3,8 @@ class DetailsController < ApplicationController
 
   # GET /details
   def index
-    @details = Detail.page(params[:page]).per(10)
+    @q = Detail.ransack(params[:q])
+    @details = @q.result(:distinct => true).includes(:materials, :bookmarks, :comments, :project, :designer, :suppliers, :detailer, :products).page(params[:page]).per(10)
   end
 
   # GET /details/1

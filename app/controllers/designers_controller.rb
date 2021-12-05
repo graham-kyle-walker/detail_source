@@ -3,7 +3,8 @@ class DesignersController < ApplicationController
 
   # GET /designers
   def index
-    @designers = Designer.page(params[:page]).per(10)
+    @q = Designer.ransack(params[:q])
+    @designers = @q.result(:distinct => true).includes(:project, :details, :designers).page(params[:page]).per(10)
   end
 
   # GET /designers/1
