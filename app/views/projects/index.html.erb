@@ -38,6 +38,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @projects, partial: "list_item", as: :project %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @projects, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>

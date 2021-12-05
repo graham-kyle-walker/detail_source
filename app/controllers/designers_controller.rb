@@ -3,7 +3,7 @@ class DesignersController < ApplicationController
 
   # GET /designers
   def index
-    @designers = Designer.all
+    @designers = Designer.page(params[:page]).per(10)
   end
 
   # GET /designers/1

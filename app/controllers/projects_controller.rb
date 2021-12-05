@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.all
+    @projects = Project.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@projects.where.not(:location_latitude => nil)) do |project, marker|
       marker.lat project.location_latitude
       marker.lng project.location_longitude

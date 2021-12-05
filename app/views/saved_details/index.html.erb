@@ -34,6 +34,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @saved_details, partial: "list_item", as: :saved_detail %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @saved_details, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>

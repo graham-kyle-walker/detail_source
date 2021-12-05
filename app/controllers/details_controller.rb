@@ -3,7 +3,7 @@ class DetailsController < ApplicationController
 
   # GET /details
   def index
-    @details = Detail.all
+    @details = Detail.page(params[:page]).per(10)
   end
 
   # GET /details/1
