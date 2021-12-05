@@ -22,7 +22,11 @@
 
       <dt>Supplier</dt>
       <!-- Display supplier_id start -->
-      <dd><%= product.supplier_id %></dd>
+      <dd>
+        <% if @product.supplier.present? %>
+          <%= link_to product.supplier, product.supplier %>
+        <% end %>
+      </dd>
       <!-- Display supplier_id end -->
 
       <dt>Image</dt>

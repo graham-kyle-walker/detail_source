@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Project</dt>
       <!-- Display project_id start -->
-      <dd><%= designer.project_id %></dd>
+      <dd>
+        <% if @designer.project.present? %>
+          <%= link_to designer.project, designer.project %>
+        <% end %>
+      </dd>
       <!-- Display project_id end -->
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= designer.user_id %></dd>
+      <dd>
+        <% if @designer.designers.present? %>
+          <%= link_to designer.designers, designer.designers %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
     </dl>

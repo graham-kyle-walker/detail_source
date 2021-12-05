@@ -12,12 +12,20 @@
 
       <dt>Product</dt>
       <!-- Display product_id start -->
-      <dd><%= material.product_id %></dd>
+      <dd>
+        <% if @material.product.present? %>
+          <%= link_to material.product, material.product %>
+        <% end %>
+      </dd>
       <!-- Display product_id end -->
 
       <dt>Detail</dt>
       <!-- Display detail_id start -->
-      <dd><%= material.detail_id %></dd>
+      <dd>
+        <% if @material.detail.present? %>
+          <%= link_to material.detail, material.detail %>
+        <% end %>
+      </dd>
       <!-- Display detail_id end -->
 
     </dl>

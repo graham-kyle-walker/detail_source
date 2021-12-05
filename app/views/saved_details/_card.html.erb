@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Detail</dt>
       <!-- Display detail_id start -->
-      <dd><%= saved_detail.detail_id %></dd>
+      <dd>
+        <% if @saved_detail.detail.present? %>
+          <%= link_to saved_detail.detail, saved_detail.detail %>
+        <% end %>
+      </dd>
       <!-- Display detail_id end -->
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= saved_detail.user_id %></dd>
+      <dd>
+        <% if @saved_detail.user.present? %>
+          <%= link_to saved_detail.user, saved_detail.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
     </dl>

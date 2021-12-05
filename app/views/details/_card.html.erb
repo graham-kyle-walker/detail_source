@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Project</dt>
       <!-- Display project_id start -->
-      <dd><%= detail.project_id %></dd>
+      <dd>
+        <% if @detail.project.present? %>
+          <%= link_to detail.project, detail.project %>
+        <% end %>
+      </dd>
       <!-- Display project_id end -->
 
       <dt>Designer</dt>
       <!-- Display designer_id start -->
-      <dd><%= detail.designer_id %></dd>
+      <dd>
+        <% if @detail.designer.present? %>
+          <%= link_to detail.designer, detail.designer %>
+        <% end %>
+      </dd>
       <!-- Display designer_id end -->
 
       <dt>Success score</dt>
