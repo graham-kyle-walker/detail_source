@@ -1,6 +1,8 @@
 class SavedDetail < ApplicationRecord
   # Direct associations
 
+  belongs_to :user
+
   belongs_to :detail
 
   # Indirect associations
