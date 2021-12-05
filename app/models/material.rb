@@ -1,6 +1,8 @@
 class Material < ApplicationRecord
   # Direct associations
 
+  belongs_to :detail
+
   # Indirect associations
 
   # Validations

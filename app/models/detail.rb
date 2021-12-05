@@ -1,6 +1,9 @@
 class Detail < ApplicationRecord
   # Direct associations
 
+  has_many   :materials,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
