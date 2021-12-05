@@ -8,6 +8,8 @@ class MaterialResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :product
+
   belongs_to :detail
 
   # Indirect associations

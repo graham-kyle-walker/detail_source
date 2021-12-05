@@ -10,6 +10,9 @@ class ProductResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :use_case,
+             resource: MaterialResource
+
   # Indirect associations
 
 end
