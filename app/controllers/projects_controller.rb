@@ -4,7 +4,6 @@ class ProjectsController < ApplicationController
 
   before_action :set_project, only: %i[show edit update destroy]
 
-  # GET /projects
   def index
     @q = Project.ransack(params[:q])
     @projects = @q.result(distinct: true).includes(:details, :designers,
@@ -12,25 +11,20 @@ class ProjectsController < ApplicationController
     @location_hash = Gmaps4rails.build_markers(@projects.where.not(location_latitude: nil)) do |project, marker|
       marker.lat project.location_latitude
       marker.lng project.location_longitude
-      marker.infowindow "<h5><a href='/projects/#{project.id}'>#{project.project_manager_id}</a></h5><small>#{project.location_formatted_address}</small>"
     end
   end
 
-  # GET /projects/1
   def show
     @designer = Designer.new
     @detail = Detail.new
   end
 
-  # GET /projects/new
   def new
     @project = Project.new
   end
 
-  # GET /projects/1/edit
   def edit; end
 
-  # POST /projects
   def create
     @project = Project.new(project_params)
 
@@ -46,7 +40,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /projects/1
   def update
     if @project.update(project_params)
       redirect_to @project, notice: "Project was successfully updated."
@@ -55,7 +48,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1
   def destroy
     @project.destroy
     message = "Project was successfully deleted."
@@ -76,12 +68,10 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_project
     @project = Project.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def project_params
     params.require(:project).permit(:project_manager_id, :location,
                                     :completion_date, :name, :description)
