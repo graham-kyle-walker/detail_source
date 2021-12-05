@@ -1,5 +1,7 @@
 ActiveAdmin.register Project do
 
+ permit_params :project_manager_id, :location, :completion_date, :name, :description
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
