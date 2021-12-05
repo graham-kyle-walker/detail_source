@@ -4,6 +4,8 @@ RSpec.describe Designer, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:designers) }
+
     it { should have_many(:details) }
 
     it { should belong_to(:project) }

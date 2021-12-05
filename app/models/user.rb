@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :assigned_project,
+             :class_name => "Designer",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
