@@ -1,6 +1,9 @@
 class Project < ApplicationRecord
   # Direct associations
 
+  belongs_to :project_manager,
+             :class_name => "User"
+
   has_many   :designers,
              :dependent => :destroy
 

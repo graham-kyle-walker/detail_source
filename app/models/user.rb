@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :projects,
+             :foreign_key => "project_manager_id",
+             :dependent => :destroy
+
   has_many   :assigned_project,
              :class_name => "Designer",
              :dependent => :destroy
