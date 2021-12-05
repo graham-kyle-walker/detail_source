@@ -6,6 +6,10 @@ class Supplier < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :projects,
+             :through => :details,
+             :source => :project
+
   # Validations
 
   # Scopes

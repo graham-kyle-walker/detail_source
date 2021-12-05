@@ -12,6 +12,10 @@ class Project < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :suppliers,
+             :through => :details,
+             :source => :suppliers
+
   # Validations
 
   # Scopes
