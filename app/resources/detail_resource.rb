@@ -24,4 +24,18 @@ class DetailResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :suppliers do
+    assign_each do |detail, suppliers|
+      suppliers.select do |s|
+        s.id.in?(detail.suppliers.map(&:id))
+      end
+    end
+  end
+
+
+  filter :supplier_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:suppliers).where(:products => {:supplier_id => value})
+    end
+  end
 end

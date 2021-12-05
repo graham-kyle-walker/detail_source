@@ -12,6 +12,14 @@ class SupplierResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :details do
+    assign_each do |supplier, details|
+      details.select do |d|
+        d.id.in?(supplier.details.map(&:id))
+      end
+    end
+  end
+
   has_many :projects do
     assign_each do |supplier, projects|
       projects.select do |p|
@@ -24,6 +32,12 @@ class SupplierResource < ApplicationResource
   filter :project_id, :integer do
     eq do |scope, value|
       scope.eager_load(:projects).where(:details => {:project_id => value})
+    end
+  end
+
+  filter :detail_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:details).where(:materials => {:detail_id => value})
     end
   end
 end
