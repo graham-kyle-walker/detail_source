@@ -10,6 +10,8 @@ class ProjectResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :designers
+
   has_many   :details
 
   # Indirect associations
