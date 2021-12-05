@@ -24,6 +24,8 @@ class DetailResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :products
+
   has_one    :detailer,
              resource: UserResource
   has_many :suppliers do
