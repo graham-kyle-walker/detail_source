@@ -1,6 +1,8 @@
 class Detail < ApplicationRecord
   # Direct associations
 
+  belongs_to :designer
+
   belongs_to :project
 
   has_many   :comments,

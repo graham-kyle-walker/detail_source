@@ -4,6 +4,8 @@ RSpec.describe Detail, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:designer) }
+
     it { should belong_to(:project) }
 
     it { should have_many(:comments) }

@@ -1,6 +1,9 @@
 class Designer < ApplicationRecord
   # Direct associations
 
+  has_many   :details,
+             :dependent => :destroy
+
   belongs_to :project
 
   # Indirect associations
