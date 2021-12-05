@@ -1,6 +1,9 @@
 class Project < ApplicationRecord
   # Direct associations
 
+  has_many   :details,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

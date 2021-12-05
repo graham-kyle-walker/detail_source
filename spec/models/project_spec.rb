@@ -4,6 +4,8 @@ RSpec.describe Project, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:details) }
+
     end
 
     describe "InDirect Associations" do

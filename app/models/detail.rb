@@ -1,6 +1,8 @@
 class Detail < ApplicationRecord
   # Direct associations
 
+  belongs_to :project
+
   has_many   :comments,
              :dependent => :destroy
 
