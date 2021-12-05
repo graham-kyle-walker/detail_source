@@ -23,7 +23,7 @@
     <%= f.label :detail_id %>
 
     <!-- Input for detail_id start -->
-    <%= f.text_field :detail_id, class: "form-control" %>
+    <%= f.collection_select :detail_id, Detail.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for detail_id end -->
   </div>
   <!-- Label and input for detail_id end -->
