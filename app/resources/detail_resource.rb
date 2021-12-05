@@ -11,6 +11,8 @@ class DetailResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :comments
+
   has_many   :bookmarks,
              resource: SavedDetailResource
 

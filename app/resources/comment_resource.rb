@@ -8,6 +8,8 @@ class CommentResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :detail
+
   # Indirect associations
 
 end
