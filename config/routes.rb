@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "details#index"
   resources :comments
   resources :saved_details
   devise_for :users
