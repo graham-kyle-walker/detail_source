@@ -6,6 +6,10 @@ class Supplier < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :details,
+             :through => :products,
+             :source => :details
+
   has_many   :projects,
              :through => :details,
              :source => :project

@@ -17,6 +17,10 @@ class Detail < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :suppliers,
+             :through => :products,
+             :source => :supplier
+
   # Validations
 
   # Scopes

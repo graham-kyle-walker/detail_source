@@ -18,6 +18,8 @@ RSpec.describe Detail, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:suppliers) }
+
     end
 
     describe "Validations" do
