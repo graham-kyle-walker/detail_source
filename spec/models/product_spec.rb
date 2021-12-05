@@ -4,6 +4,8 @@ RSpec.describe Product, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:supplier) }
+
     it { should have_many(:use_case) }
 
     end
