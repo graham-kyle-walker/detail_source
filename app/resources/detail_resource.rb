@@ -11,6 +11,9 @@ class DetailResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :bookmarks,
+             resource: SavedDetailResource
+
   has_many   :materials
 
   # Indirect associations
