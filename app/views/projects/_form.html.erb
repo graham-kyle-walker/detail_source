@@ -1,0 +1,135 @@
+<% was_validated = project.errors.any? %>
+
+<%= form_with(model: project, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for project_manager_id start -->
+  <div class="form-group">
+    <% project_manager_class = "form-control" %>
+    <% project_manager_was_invalid = project.errors.include?(:project_manager) %>
+
+    <% if was_validated %>
+      <% if project_manager_was_invalid %>
+        <% project_manager_class << " is-invalid" %>
+      <% else %>
+        <% project_manager_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :project_manager_id %>
+    <!-- Input for project_manager_id start -->
+    <%= f.number_field :project_manager_id, class: project_manager_class, placeholder: "Enter project manager" %>
+    <!-- Input for project_manager_id end -->
+    <% if project_manager_was_invalid %>
+      <% project.errors.full_messages_for(:project_manager).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for project_manager_id end -->
+  <!-- Label and input for location start -->
+  <div class="form-group">
+    <% location_class = "form-control" %>
+    <% location_was_invalid = project.errors.include?(:location) %>
+
+    <% if was_validated %>
+      <% if location_was_invalid %>
+        <% location_class << " is-invalid" %>
+      <% else %>
+        <% location_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :location %>
+    <!-- Input for location start -->
+    <%= f.text_field :location, class: location_class, placeholder: "Enter location" %>
+    <!-- Input for location end -->
+    <% if location_was_invalid %>
+      <% project.errors.full_messages_for(:location).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for location end -->
+  <!-- Label and input for completion_date start -->
+  <div class="form-group">
+    <% completion_date_class = "form-control" %>
+    <% completion_date_was_invalid = project.errors.include?(:completion_date) %>
+
+    <% if was_validated %>
+      <% if completion_date_was_invalid %>
+        <% completion_date_class << " is-invalid" %>
+      <% else %>
+        <% completion_date_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :completion_date %>
+    <!-- Input for completion_date start -->
+    <%= f.date_select :completion_date, class: completion_date_class, placeholder: "Enter completion date" %>
+    <!-- Input for completion_date end -->
+    <% if completion_date_was_invalid %>
+      <% project.errors.full_messages_for(:completion_date).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for completion_date end -->
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = project.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <!-- Input for name end -->
+    <% if name_was_invalid %>
+      <% project.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for name end -->
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <% description_class = "form-control" %>
+    <% description_was_invalid = project.errors.include?(:description) %>
+
+    <% if was_validated %>
+      <% if description_was_invalid %>
+        <% description_class << " is-invalid" %>
+      <% else %>
+        <% description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :description %>
+    <!-- Input for description start -->
+    <%= f.text_field :description, class: description_class, placeholder: "Enter description" %>
+    <!-- Input for description end -->
+    <% if description_was_invalid %>
+      <% project.errors.full_messages_for(:description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for description end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
