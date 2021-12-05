@@ -16,7 +16,7 @@
 
     <%= f.label :project_manager_id %>
     <!-- Input for project_manager_id start -->
-    <%= f.number_field :project_manager_id, class: project_manager_class, placeholder: "Enter project manager" %>
+    <%= f.collection_select :project_manager_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for project_manager_id end -->
     <% if project_manager_was_invalid %>
       <% project.errors.full_messages_for(:project_manager).each do |message| %>
