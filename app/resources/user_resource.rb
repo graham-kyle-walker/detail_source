@@ -20,4 +20,12 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :details do
+    assign_each do |user, details|
+      details.select do |d|
+        d.id.in?(user.details.map(&:id))
+      end
+    end
+  end
+
 end

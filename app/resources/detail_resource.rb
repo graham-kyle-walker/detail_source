@@ -24,6 +24,8 @@ class DetailResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :detailer,
+             resource: UserResource
   has_many :suppliers do
     assign_each do |detail, suppliers|
       suppliers.select do |s|
@@ -36,6 +38,12 @@ class DetailResource < ApplicationResource
   filter :supplier_id, :integer do
     eq do |scope, value|
       scope.eager_load(:suppliers).where(:products => {:supplier_id => value})
+    end
+  end
+
+  filter :user_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:detailer).where(:designers => {:user_id => value})
     end
   end
 end
